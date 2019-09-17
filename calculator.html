@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<link rel="stylesheet" type="text/css" href="Calculator.css">
+</head>
+<body>
+	<div class="main">
+		<div class="name">
+			CALCULATOR
+		</div>
+		<!-- <div class="display"> -->
+			<input type="text" name="" id="inputs" disabled="true">
+		<!-- </div> -->
+
+		<div class="buttons">
+			<div class="row1">
+				<button id="b1"  class="aa" onclick="clearScreen()" value="AC">AC</button>
+				<button id="b1" value="√" onclick="display('√')"><strong>√</strong></button>
+				<button id="b1" value="00" onclick="display('00')">00</button>
+				<button id="b1" value="*" onclick="display('*')">*</button>
+				<button id="b1" value="Sin" onclick="come('sin')">Sin</button>
+			</div>
+			<div class="row1">
+				<button id="b1" value="7" onclick="display('7')">7</button>
+				<button id="b1" value="8" onclick="display('8')">8</button>
+				<button id="b1" value="9" onclick="display('9')">9</button>
+				<button id="b1" value="/" onclick="display('/')">/</button>
+				<button id="b1" value="Cos" onclick="come('cos')">Cos</button>
+			</div>
+			<div class="row1">
+				<button id="b1" value="4" onclick="display('4')">4</button>
+				<button id="b1" value="5" onclick="display('5')">5</button>
+				<button id="b1" value="6" onclick="display('6')">6</button>
+				<button id="b1" value="-" onclick="display('-')">-</button>
+				<button id="b1" value="Tan" onclick="come('tan')">Tan</button>
+			</div>
+			<div class="row1">
+				<button id="b1" value="1" onclick="display('1')">1</button>
+				<button id="b1" value="2" onclick="display('2')">2</button>
+				<button id="b1" value="3" onclick="display('3')">3</button>
+				<button id="b1" value="+" onclick="display('+')">+</button>
+				<button id="b1" value="Log" onclick="come('log')">Log</button>
+			</div>
+			<div class="row1">
+				<button id="b1" value="Del" onclick="clearOne()">Del</button>
+				<button id="b1" value="0" onclick="display('0')">0</button>
+				<button id="b1" value="." onclick="display('.')"><strong>.</strong></button>
+				<button id="b1"value="=" onclick="solve()">=</button>
+				<button id="b1" value=")" onclick="display(')')">)</button>
+			</div>
+			
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		var show ='';
+		
+		function  display(value){
+			if (b) {
+				show+=value;
+				document.getElementById("inputs").value+=value;
+			}else{
+				show+=value;
+			document.getElementById("inputs").value=show;
+			}
+
+
+			
+		}
+
+		function solve(){
+			if (b) {
+
+				if (c =='sin') {
+				document.getElementById("inputs").value=Math.sin(eval(show));
+				} else if (c == 'cos') {
+					document.getElementById("inputs").value=Math.cos(eval(show));
+				} else if (c == 'tan') {
+					document.getElementById("inputs").value=Math.tan(eval(show));
+				} else if (c == 'log') {
+					document.getElementById("inputs").value=Math.log(eval(show));
+				}
+				b = false;
+			} else {
+				var k = eval(show);
+			document.getElementById("inputs").value = k;
+			}
+			show ='';
+		}
+
+		function clearScreen(){
+			document.getElementById("inputs").value = ""
+		}
+
+		// function sine(){ 
+		// 	s = document.getElementById("inputs").value;
+		// 	document.getElementById("inputs").value = Math.sin(s);
+			
+		// }
+
+		var b = false;
+		var c;
+		function come(a){
+				document.getElementById("inputs").value += a;
+			if (a == 'sin') {
+				c = 'sin';
+			} else if (a == 'cos') {
+				c = 'cos';
+			} else if (a== 'tan') {
+				c = 'tan';
+			} else if (a== 'log') {
+				c = 'log';
+			} 
+			b= true;
+		}
+
+
+		/*function cose(){
+			c = document.getElementById("inputs").value;
+			document.getElementById("inputs").value = Math.cos(c);
+		}
+
+		function tane(){
+			t = document.getElementById("inputs").value;
+			document.getElementById("inputs").value = Math.tan(t);
+		}
+
+		function loge(){
+			l = document.getElementById("inputs").value;
+			document.getElementById("inputs").value = Math.log(l);
+		}
+*/
+		function clearOne(){
+			document.getElementById("inputs").value= document.getElementById("inputs").value.slice(0,-1)
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
